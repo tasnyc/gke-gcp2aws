@@ -112,7 +112,7 @@ $ aws --profile GCPAWS s3 ls s3://
 ```
 List objects in the testbucket S3 bucket:
 ```
-$ aws --profile GCPAWS s3 ls s3://dig-de-test --recursive
+$ aws --profile GCPAWS s3 ls s3://testbucket --recursive
 2023-09-05 14:20:40          0 archive/Folder/
 2023-09-13 15:31:11        999 archive/Folder/2023-06-29.csv
 2023-09-13 15:31:12        999 archive/Folder/2023-06-30.csv
