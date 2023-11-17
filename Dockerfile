@@ -10,7 +10,8 @@ FROM python:alpine3.18
 LABEL maintainer="tchatziantoniou@gmail.com"
 
 RUN apk add --no-cache \
-      vim
+      vim \
+      aws-cli
 
 ENV PYTHONPATH=/app/.local
 ENV PATH=$PATH:/app/.local/bin
