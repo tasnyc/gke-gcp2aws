@@ -1,0 +1,44 @@
+repos:
+-   repo: https://github.com/gitleaks/gitleaks
+    rev: v8.21.3
+    hooks:
+    -   id: gitleaks
+        args: ["--verbose"]
+        stages: [pre-commit]
+-   repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+    -   id: isort
+        args: ["--profile", "black", "--filter-files"]
+-   repo: https://github.com/psf/black
+    rev: 24.10.0
+    hooks:
+    -   id: black
+        args: ["--line-length", "120", "--skip-string-normalization"]
+-   repo: https://github.com/asottile/blacken-docs
+    rev: 1.19.1
+    hooks:
+    -   id: blacken-docs
+        additional_dependencies: [black==24.10.0]
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+    -   id: check-yaml
+        args: ["--allow-multiple-documents"]
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+        args: ["--markdown-linebreak-ext=md"]
+    -   id: requirements-txt-fixer
+-   repo: https://github.com/scop/pre-commit-shfmt
+    rev: v3.10.0-2
+    hooks:
+    -   id: shfmt
+-   repo: https://gitlab.com/vojko.pribudic.foss/pre-commit-update
+    rev: v0.6.1
+    hooks:
+    -   id: pre-commit-update
+        args: ["--verbose"]
+-   repo: https://github.com/mxr/sync-pre-commit-deps
+    rev: v0.0.1
+    hooks:
+    -   id: sync-pre-commit-deps
