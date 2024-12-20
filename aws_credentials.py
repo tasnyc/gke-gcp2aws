@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
-import requests
-import boto3
 import json
 import sys
 
+import boto3
+import requests
 
 '''
 This script accepts one argument for the AWS role ARN
 '''
+
 
 def get_token():
     url = 'http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/identity?format=standard&audience=gcp'
@@ -24,6 +25,7 @@ def get_token():
         raise SystemExit('GCE metadata error')
         exit(0)
 
+
 if __name__ == '__main__':
     try:
         role_arn = sys.argv[1]
@@ -37,17 +39,14 @@ if __name__ == '__main__':
     session_name = '{}.{}'.format(account_id, role_name)
 
     sts = boto3.client('sts', aws_access_key_id='', aws_secret_access_key='')
-    res = sts.assume_role_with_web_identity(
-        RoleArn=role_arn,
-        WebIdentityToken=token,
-        RoleSessionName=session_name)
+    res = sts.assume_role_with_web_identity(RoleArn=role_arn, WebIdentityToken=token, RoleSessionName=session_name)
 
     credentials = {
         'Version': 1,
         'AccessKeyId': res['Credentials']['AccessKeyId'],
         'SecretAccessKey': res['Credentials']['SecretAccessKey'],
         'SessionToken': res['Credentials']['SessionToken'],
-        'Expiration': res['Credentials']['Expiration'].isoformat()
+        'Expiration': res['Credentials']['Expiration'].isoformat(),
     }
 
     print(json.dumps(credentials))

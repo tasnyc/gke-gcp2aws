@@ -4,7 +4,7 @@ FROM python:alpine3.18 AS builder
 COPY requirements.txt /
 
 RUN pip install --upgrade pip \
-    &&  pip install --user -r /requirements.txt --no-cache-dir --no-warn-script-location 
+    &&  pip install --user -r /requirements.txt --no-cache-dir --no-warn-script-location
 
 #------ Python Run Image
 FROM python:alpine3.18

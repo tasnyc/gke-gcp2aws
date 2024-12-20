@@ -48,7 +48,7 @@ Trusted Relationships (assume role):
 ```
 That Id is the Unique ID of that GSA you created on GCP.
 
-Permissions to S3 called testbucket 
+Permissions to S3 called testbucket
 ```
 {
     "Version": "2012-10-17",
@@ -74,11 +74,11 @@ Permissions to S3 called testbucket
     ]
 }
 ```
-On the GKE side once you get a shell into the pod ( instructions below) modify (using vim) the /app/.aws/credentials file subtituting the `arn:aws:iam::123456789:role/myawsrole` Role ARN with the actual ARN of the role you created above. 
+On the GKE side once you get a shell into the pod ( instructions below) modify (using vim) the /app/.aws/credentials file subtituting the `arn:aws:iam::123456789:role/myawsrole` Role ARN with the actual ARN of the role you created above.
 
 ### Setup
 
-* Start the pod and get a shell in the container to run some tests. Pod gets deleted on exit. 
+* Start the pod and get a shell in the container to run some tests. Pod gets deleted on exit.
 ```
 kubectl run -it --rm -n my-namespace --image tasnyc/gke2aws-image:latest --overrides='{ "spec": { "serviceAccount": "my-ksa" }}' gcp2aws --command sh
 ```
@@ -97,7 +97,7 @@ Once done with the Pod and no longer need it, delete it:
 kubectl -n my-namespace delete pod gcp2aws2-pod
 ```
 ## Executing
-Once all above is completed and you made the change to the /app/.aws/credentials file with your role ARN you should be able to run this. 
+Once all above is completed and you made the change to the /app/.aws/credentials file with your role ARN you should be able to run this.
 ```
 aws --profile GCPAWS s3 ls s3://testbucket --recursive
 ```
@@ -124,7 +124,7 @@ $ aws --profile GCPAWS s3 ls s3://testbucket --recursive
 
 ## Authors
 
-tasnyc   
+tasnyc  
 
 ## Version History
 
