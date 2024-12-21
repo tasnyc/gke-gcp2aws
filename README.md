@@ -4,7 +4,7 @@ Connect from a GKE Pod to AWS
 
 ## Description
 
-This is a Docker image that runs on GKE that can be used to test connectivity to AWS using Google Service Account Unique ID in a AWS Role  Trusted Relationships using AssumeRoleWithWebIdentity. Once connectivity is confirmed you can test scripts as needed to make sure everythin is working as expected. For example maybe you want to pull in some objects from an AWS S3 bucket and parse some info from those objects.
+This is a Docker image that runs on GKE that can be used to test connectivity to AWS using Google Service Account Unique ID in a AWS Role Trusted Relationships using AssumeRoleWithWebIdentity. Once connectivity is confirmed you can test scripts as needed to make sure everything is working as expected. For examplei, maybe you want to pull in some objects from an AWS S3 bucket and parse some info from those objects.
 
 Docker image is hosted in [Docker Hub](https://hub.docker.com/repository/docker/tasnyc/gke2aws-image/general).
 
