@@ -7,6 +7,9 @@ on:
   # on demand
   workflow_dispatch:
 
+permissions:
+  contents: write  # Minimum permission required to push changes and create a pull request
+
 jobs:
   autoupdate-precommit:
     runs-on: ubuntu-latest
