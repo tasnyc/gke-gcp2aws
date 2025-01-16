@@ -8,7 +8,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write  # Minimum permission required to push changes and create a pull request
+  contents: write  # This permission is required to push commits to a branch.
+  pull-requests: write # This permission is required to create or update pull requests.
 
 jobs:
   autoupdate-precommit:
