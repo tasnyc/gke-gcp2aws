@@ -12,6 +12,7 @@ LABEL maintainer="tchatziantoniou@gmail.com"
 
 RUN apk add --no-cache \
       vim \
+      curl \
       aws-cli
 
 ENV PYTHONPATH=/app/.local
