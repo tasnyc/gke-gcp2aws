@@ -39,6 +39,6 @@ repos:
     -   id: pre-commit-update
         args: ["--verbose"]
 -   repo: https://github.com/mxr/sync-pre-commit-deps
-    rev: v0.0.2
+    rev: v0.0.3
     hooks:
     -   id: sync-pre-commit-deps
