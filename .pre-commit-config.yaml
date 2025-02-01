@@ -38,7 +38,7 @@ repos:
     hooks:
     -   id: pre-commit-update
         args: ["--verbose"]
--   repo: https://github.com/pre-commit/sync-pre-commit-dep
+-   repo: https://github.com/pre-commit/sync-pre-commit-deps
     rev: v0.0.3
     hooks:
     -   id: sync-pre-commit-deps

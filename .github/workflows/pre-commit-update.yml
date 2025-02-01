@@ -39,7 +39,7 @@ jobs:
         run: |
           pre-commit autoupdate
 
-      # Step 5: sync-pre-commit-de[s
+      # Step 5: sync-pre-commit-deps
       - name: Update additional dependencies after pre-commit autoupdate
         run: |
           sync-pre-commit-deps .pre-commit-config.yaml
