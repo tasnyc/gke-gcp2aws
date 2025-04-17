@@ -42,10 +42,7 @@ jobs:
       # Step 5: sync-pre-commit-deps
       - name: Update additional dependencies after pre-commit autoupdate
         run: |
-          sync-pre-commit-deps .pre-commit-config.yaml
-        # If makes change it gets error code 1 for some reason so need this
-        # to continue the Action
-        continue-on-error: true
+          sync-pre-commit-deps .pre-commit-config.yaml || echo "Updates found, but continuing.. avoiding Exit code 1 for CI/CD"
 
       # Step 6: Commit updated hooks (if changes exist)
       - name: Commit changes
@@ -57,6 +54,7 @@ jobs:
 
       # Step 7: Create Pull Request
       - name: Create pull-request
+        id: cpr
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -69,3 +67,25 @@ jobs:
             This PR updates the pre-commit hooks using `pre-commit autoupdate`.
 
             - Automated by GitHub Actions.
+
+      # Step 8: Auto-merge PR (if created)
+      - name: Auto-merge PR (squash)
+        if: steps.cpr.outputs.pull-request-url != ''
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prNumber = Number(process.env.PR_NUMBER);
+            const commitTitle = `🔀 Auto-squash merge for PR #${prNumber}`;
+            const commitMessage = `This PR was automatically merged using squash by GitHub Actions.`;
+
+            await github.rest.pulls.merge({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber,
+              merge_method: 'squash',
+              commit_title: commitTitle,
+              commit_message: commitMessage,
+            });
+        env:
+          PR_NUMBER: ${{ steps.cpr.outputs.pull-request-number }}
