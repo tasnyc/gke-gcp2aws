@@ -1,6 +1,6 @@
 repos:
 -   repo: https://github.com/gitleaks/gitleaks
-    rev: v8.27.2
+    rev: v8.28.0
     hooks:
     -   id: gitleaks
         args: ["--verbose"]
@@ -30,7 +30,7 @@ repos:
         args: ["--markdown-linebreak-ext=md"]
     -   id: requirements-txt-fixer
 -   repo: https://github.com/scop/pre-commit-shfmt
-    rev: v3.12.0-1
+    rev: v3.12.0-2
     hooks:
     -   id: shfmt
 -   repo: https://gitlab.com/vojko.pribudic.foss/pre-commit-update
