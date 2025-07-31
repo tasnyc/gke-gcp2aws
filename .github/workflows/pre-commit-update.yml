@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write  # This permission is required to push commits to a branch.
+  issues: write # Manage issues (create, edit, label, comment, close). label in this case
   pull-requests: write # This permission is required to create or update pull requests.
 
 jobs:
