@@ -72,7 +72,7 @@ jobs:
       # Step 8: Auto-merge PR (if created)
       - name: Auto-merge PR (squash)
         if: steps.cpr.outputs.pull-request-url != ''
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
