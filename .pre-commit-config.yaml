@@ -30,7 +30,7 @@ repos:
         args: ["--markdown-linebreak-ext=md"]
     -   id: requirements-txt-fixer
 -   repo: https://github.com/scop/pre-commit-shfmt
-    rev: v3.13.0-1
+    rev: v3.13.1-1
     hooks:
     -   id: shfmt
 -   repo: https://gitlab.com/vojko.pribudic.foss/pre-commit-update
