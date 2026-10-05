@@ -6,12 +6,12 @@ repos:
         args: ["--verbose"]
         stages: [pre-commit]
 -   repo: https://github.com/pycqa/isort
-    rev: 9.0.1
+    rev: 9.0.2
     hooks:
     -   id: isort
         args: ["--profile", "black", "--filter-files"]
 -   repo: https://github.com/psf/black
-    rev: 26.5.1
+    rev: 26.10.0
     hooks:
     -   id: black
         args: ["--line-length", "120", "--skip-string-normalization"]
@@ -19,7 +19,7 @@ repos:
     rev: 1.20.0
     hooks:
     -   id: blacken-docs
-        additional_dependencies: [black==26.5.1]
+        additional_dependencies: [black==26.10.0]
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
